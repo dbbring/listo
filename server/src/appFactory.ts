@@ -1,5 +1,5 @@
 import * as express from 'express';
-import * as trello from './trello';
+import * as jira from './jira';
 import * as slack from './slack';
 import * as cors from 'cors';
 import {
@@ -104,39 +104,62 @@ async function appFactory(db: Repository, listoData: DirectoryData) {
     }
 
     try {
-      board = await trello.createFullBoard(
-        inputData.projectMetaResponses.boardName,
-        inputData,
-        listoData,
-      );
+      board = await jira.createJiraIssues(inputData, listoData);
     } catch (err) {
-      await slack.sendMessage(
-        JSON.stringify({
-          Status: `Failed to create Trello board for ${inputData.projectMetaResponses.boardName}.`,
-          Project: buildProjectURL(req.protocol, req.hostname, projectId),
-          ProjectDetails: inputData.projectMetaResponses,
-          Environment: process.env.STAGE,
-        }),
-      );
-
-      throw new Error(
-        `Failed to create Trello board for project ${projectId}: ${err}.`,
-      );
-    }
-
-    try {
-      if (inputData.projectMetaResponses.trelloEmail) {
-        await trello.addMember(
-          board.id,
-          inputData.projectMetaResponses.trelloEmail,
+      try {
+        console.log('Warning of failure via Slack');
+        await slack.sendMessage(
+          JSON.stringify({
+            Status: `Listo failure to create Jira`,
+            Project: projectId,
+            ProjectDetails: inputData.projectMetaResponses,
+            Environment: process.env.STAGE,
+          }),
+        );
+      } catch (err) {
+        throw new Error(
+          `Failed to send Slack alert for Project ${projectId}: ${err}`,
         );
       }
-    } catch (err) {
-      // Logging the error but not failing the response. We might want to change this in the future to throw an error to the client.
-      console.log(
-        `Failed to add Trello user with email ${inputData.projectMetaResponses.trelloEmail} to project ${projectId}: ${err}.`,
+      throw new Error(
+        `Failed to create Jira tasks for project ${projectId}: ${err}.`,
       );
     }
+
+    // try {
+    //   board = await trello.createFullBoard(
+    //     inputData.projectMetaResponses.boardName,
+    //     inputData,
+    //     listoData,
+    //   );
+    // } catch (err) {
+    //   await slack.sendMessage(
+    //     JSON.stringify({
+    //       Status: `Failed to create Trello board for ${inputData.projectMetaResponses.boardName}.`,
+    //       Project: buildProjectURL(req.protocol, req.hostname, projectId),
+    //       ProjectDetails: inputData.projectMetaResponses,
+    //       Environment: process.env.STAGE,
+    //     }),
+    //   );
+
+    //   throw new Error(
+    //     `Failed to create Trello board for project ${projectId}: ${err}.`,
+    //   );
+    // }
+
+    // try {
+    //   if (inputData.projectMetaResponses.trelloEmail) {
+    //     await trello.addMember(
+    //       board.id,
+    //       inputData.projectMetaResponses.trelloEmail,
+    //     );
+    //   }
+    // } catch (err) {
+    //   // Logging the error but not failing the response. We might want to change this in the future to throw an error to the client.
+    //   console.log(
+    //     `Failed to add Trello user with email ${inputData.projectMetaResponses.trelloEmail} to project ${projectId}: ${err}.`,
+    //   );
+    // }
 
     try {
       await db.update(projectId, board.shortUrl);

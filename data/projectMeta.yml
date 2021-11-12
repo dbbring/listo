@@ -1,10 +1,15 @@
-- name: boardName
-  placeholder: 'Feature X or Product Y'
+- name: featureName
+  placeholder: 'Milestone 1'
   required: true
-  label: The feature or product you want to assess
+  label: The epic containing a block of work to be done
+  type: input
+- name: ticketLink
+  placeholder: 'https://honeycomb.jira.com/browse/IS-2114'
+  required: true
+  label: The link the Jira ticket needing a secops review
   type: input
 - name: slackTeam
-  placeholder: '#myteam'
+  placeholder: '#security'
   required: true
   label: Your teams Slack channel
   type: input
@@ -18,8 +23,8 @@
   required: false
   label: A link to find out more (code or documentation)
   type: input
-- name: trelloEmail
-  placeholder: 'mytrello@email.com'
+- name: assigneeEmail
+  placeholder: 'first.last@c2fo.com'
   required: true
-  label: The email address of your Trello account
+  label: Your Jira Email typically the corp email
   type: input
