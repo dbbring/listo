@@ -1,3 +1,14 @@
+Changes:
+  No AWS Config Changes:
+    description: > 
+      Are you going to change any terraform or config files?
+  No New Services:
+    description: >
+      Are you using a new service?
+  No New Dependencies:
+    description: >
+      Did you add a new dependency?
+
 Execution:
   Gantry:
     description: >
@@ -17,15 +28,12 @@ Deployment:
     description: Teamcity is an outdated CI/CD process, it is now mostly used for legacy Windows builds.
     warning: "Should not be used for new projects"
 Security:
-  Snyk:
+  Remediate:
     description: > 
-      Snyk is a tool for finding and fixing vulnerabilities in open source third party dependencies (libraries).
+      Remediate is part of the White Source integration. It opens PRs when your dependencies become vulnerable.
   Renovate:
     description: > 
-      [Renovate](https://github.com/renovatebot/renovate) is a Github tool for automatic dependency update, and is multi-platform and multi-language. It opens PRs when your dependencies become out of date. Ask in the #github channel for access.
-  Upkeep:
-    description: >
-      Upkeep is a webapp for keeping track of maintenance of your Github projects. Ask in the #upkeep channel for questions.
+      Renovate is part of the White Source integration. It opens PRs when your dependencies become out of date.
 Authentication:
   Auth Sidecar:
     description: >

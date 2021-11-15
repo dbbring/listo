@@ -27,7 +27,7 @@ const ToolingComponent = () => {
       <Grid justify="space-between" container>
         <Grid item>
           <Typography variant="h6" gutterBottom>
-            Select your tools
+            Select the appropriate options
           </Typography>
         </Grid>
         <Grid item>

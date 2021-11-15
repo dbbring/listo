@@ -118,7 +118,7 @@ async function createMainEpic(
             h3. *People involved in the assessment:* ${projectDetails.slackUserName ||
               ''}
             h3. *Documentation link:* ${projectDetails.codeLocation || ''}
-            h3. *Created By:* [~${assignee.displayName}]
+            h3. *Assigned To:* @${assignee.displayName}
             `,
         assignee: { id: assignee.accountId },
       },
@@ -223,8 +223,8 @@ async function createTasksForStory(
             }
 
             try {
-              const re = jira.addNewIssue(payload);
-              console.log(`Added ${re.key}`);
+              jira.addNewIssue(payload);
+              console.log(`New Subtask Added`);
             } catch (e) {
               console.log(e.message);
               throw new Error('Calling JIRA API failed: ' + e.message);

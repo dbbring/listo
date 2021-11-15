@@ -1,22 +1,22 @@
 - name: featureName
-  placeholder: 'Milestone 1'
+  placeholder: 'Reviewing Epic Name (Shows in the created ticket)'
   required: true
-  label: The epic containing a block of work to be done
+  label: Epic's name to be reviewed
   type: input
 - name: ticketLink
   placeholder: 'https://honeycomb.jira.com/browse/IS-2114'
   required: true
-  label: The link the Jira ticket needing a secops review
+  label: Jira Link to above Epic
   type: input
 - name: slackTeam
   placeholder: '#security'
   required: true
-  label: Your teams Slack channel
+  label: Your teams public slack channel for Q and A
   type: input
 - name: slackUserName
   placeholder: '@name'
   required: true
-  label: Your Slack Username
+  label: Slack username of initiator
   type: input
 - name: codeLocation
   placeholder: https:// (link to code or documentation)
@@ -26,5 +26,5 @@
 - name: assigneeEmail
   placeholder: 'first.last@c2fo.com'
   required: true
-  label: Your Jira Email typically the corp email
+  label: Jira account email to be assigned to created tickets
   type: input

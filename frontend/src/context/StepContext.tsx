@@ -6,13 +6,13 @@ import { getRiskLevel } from '../utils';
 export type STEP_TYPES =
   | 'Project Details'
   | 'Risk Assessment'
-  | 'Tools'
+  | 'Options'
   | 'Modules'
   | 'Summary';
 
 export const INFO_STEP: STEP_TYPES = 'Project Details';
 export const RISK_STEP: STEP_TYPES = 'Risk Assessment';
-export const TOOLS_STEP: STEP_TYPES = 'Tools';
+export const TOOLS_STEP: STEP_TYPES = 'Options';
 export const MODULES_STEP: STEP_TYPES = 'Modules';
 export const SUMMARY_STEP: STEP_TYPES = 'Summary';
 

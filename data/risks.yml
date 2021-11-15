@@ -30,13 +30,6 @@ questions:
     risk: Low Risk
   - text: Yes, this project will store, access or process sensitive customer data
 
-- text: Is this project highly important strategically?
-  description: Is this project one of our top priorities, one with major implications for our business, or otherwise highly strategic?
-  options:
-  - text: 'Yes'
-    risk: Medium Risk
-  - text: 'No'
-
 - text: Is this a change/update to an existing component, or a completely new project?
   description: ''
   options:

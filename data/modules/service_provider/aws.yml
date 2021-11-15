@@ -4,17 +4,31 @@ minimumRisk: Low Risk
 checkLists:
   General:
   - question: Our AWS account has been properly provisioned via our account creation process.
+    tools:
+        - No AWS Config Changes
   - question: >
       We have used our internal [VPC Template]()
       to create a VPC with sensible defaults.
+    tools:
+        - No AWS Config Changes
   - question: >
       We are using either [Trusted Advisor](https://console.aws.amazon.com/trustedadvisor/) to identify issues (cost, security,
       performance, etc) within our AWS account.
+    tools:
+        - No AWS Config Changes
   - question: We have triaged and created a remediation plan for all high and critical vulnerabilities.
+    tools:
+        - No AWS Config Changes
   - question: We have completed the [Well Architected Framework](https://console.aws.amazon.com/wellarchitected/home)
+    tools:
+        - No AWS Config Changes
   IAM Roles:
   - question: We have read and comply with [RFC005 - AWS IAM Users Standard]()
+    tools:
+        - No AWS Config Changes
   - question: We employ the [principle of least privilege](https://searchsecurity.techtarget.com/definition/principle-of-least-privilege-POLP) when deciding what access to give to roles and policies within our account.
+    tools:
+        - No AWS Config Changes
 resources:
   - "[Well Architected Framework](https://console.aws.amazon.com/wellarchitected/home)."
 tags: WebApp, API, Worker

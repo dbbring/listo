@@ -9,7 +9,17 @@ export const useStyles = makeStyles(theme => ({
   },
   logo: {
     textDecoration: 'none',
-    color: theme.palette.text.primary,
+    color: '#FFFFFF',
+  },
+  logoContainer: {
+    height: 100,
+    width: 200,
+    paddingTop: 25
+  },
+  menuTitle: {
+    color: '#FFFFFF',
+    marginTop: 15,
+    marginRight: 25,
   },
   menuItem: {
     paddingLeft: theme.spacing(3),
@@ -21,6 +31,7 @@ export const useStyles = makeStyles(theme => ({
   },
   appBar: {
     position: 'relative',
+    backgroundColor: '#095540',
   },
   layout: {
     width: 'auto',

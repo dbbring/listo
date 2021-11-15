@@ -20,7 +20,7 @@ export const Home = (props: HomeProps) => {
       <Grid container spacing={5}>
         <Grid item xs={12}>
           <Typography variant="h4" gutterBottom>
-            Welcome to Listo
+            Automatic Security Review
           </Typography>
         </Grid>
       </Grid>
@@ -34,17 +34,8 @@ export const Home = (props: HomeProps) => {
         </Grid>
         <Grid item xs={12}>
           <Typography variant="body1" gutterBottom>
-            At the end of the review we’ll provide a link to a Trello board
-            which contains the checklists for your project.{' '}
-            {isTrelloBoard && (
-              <a
-                href={props.listoMeta.exampleTrelloBoardLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Here is an example of a full Trello board.
-              </a>
-            )}
+            At the end of the review we’ll provide a link to a Jira Epic
+            which contains the checklists for your project.
           </Typography>
         </Grid>
         <Grid item xs={12}>
@@ -68,7 +59,7 @@ export const Home = (props: HomeProps) => {
             color="primary"
             onClick={() => navigate('/assessment')}
           >
-            Do self assessment
+            Just Do It
           </Button>
         </Grid>
       </Grid>
