@@ -172,10 +172,10 @@ async function appFactory(db: Repository, listoData: DirectoryData) {
     try {
       await slack.sendMessage(
         JSON.stringify({
-          Status: `Project ${inputData.projectMetaResponses.boardName} Created Successfully!`,
+          Status: `Project ${inputData.projectMetaResponses.featureName} Created Successfully!`,
           Project: buildProjectURL(req.protocol, req.hostname, projectId),
           ProjectDetails: inputData.projectMetaResponses,
-          Trello: board.shortUrl,
+          Epic: board.shortUrl,
           Environment: process.env.STAGE,
         }),
       );

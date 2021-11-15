@@ -14,9 +14,9 @@
   label: Your teams public slack channel for Q and A
   type: input
 - name: slackUserName
-  placeholder: '@name'
+  placeholder: '@Derek Bringewatt, @Ed Koharik, etc'
   required: true
-  label: Slack username of initiator
+  label: People Involved (Comma separated list)
   type: input
 - name: codeLocation
   placeholder: https:// (link to code or documentation)

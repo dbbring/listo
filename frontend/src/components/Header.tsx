@@ -58,7 +58,7 @@ const Header = () => {
               noWrap
               className={classes.menuTitle}
             >
-              Security Review
+              Automatic Security Review
             </Typography>
             </Toolbar>
           </Grid>
